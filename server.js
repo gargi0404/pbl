@@ -13,6 +13,7 @@ dotenv.config();
 
 // Create Express app
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Basic middleware
 app.use(cors());
@@ -30,7 +31,7 @@ const db = mysql.createConnection({
 // Connect to database
 db.connect((err) => {
     if (err) {
-        console.error('Database connection failed:', err);
+        console.error('Error connecting to database:', err);
         return;
     }
     console.log('Connected to MySQL database');
@@ -51,10 +52,11 @@ app.get('/details', (req, res) => {
 
 // API routes
 app.get('/api/persons', (req, res) => {
-    db.query('SELECT id, name, age, gender, address, phone, aadhaar_number, image_path, created_at, updated_at FROM persons', (err, results) => {
+    const query = 'SELECT * FROM persons';
+    db.query(query, (err, results) => {
         if (err) {
             console.error('Error fetching persons:', err);
-            res.status(500).json({ error: 'Failed to fetch persons' });
+            res.status(500).json({ error: 'Error fetching persons' });
             return;
         }
         res.json(results);
@@ -100,11 +102,11 @@ app.get('/api/persons/search', (req, res) => {
 });
 
 app.get('/api/persons/:id', (req, res) => {
-    const id = req.params.id;
-    db.query('SELECT id, name, age, gender, address, phone, aadhaar_number, image_path, created_at, updated_at FROM persons WHERE id = ?', [id], (err, results) => {
+    const query = 'SELECT * FROM persons WHERE id = ?';
+    db.query(query, [req.params.id], (err, results) => {
         if (err) {
             console.error('Error fetching person:', err);
-            res.status(500).json({ error: 'Failed to fetch person' });
+            res.status(500).json({ error: 'Error fetching person' });
             return;
         }
         if (results.length === 0) {
@@ -122,42 +124,26 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-const PORT = 3000;  // Using fixed port 3000
-const server = app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    console.log(`Access the application at http://localhost:${PORT}`);
-}).on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-        console.error(`Port ${PORT} is already in use. Please try a different port.`);
-        process.exit(1);
-    } else {
-        console.error('Server error:', err);
-    }
+const server = app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+    console.log(`Access the application at http://localhost:${port}`);
 });
 
-// Handle graceful shutdown
-process.on('SIGTERM', () => {
-    console.log('SIGTERM received. Shutting down gracefully...');
-    server.close(() => {
-        console.log('Server closed');
-        db.end((err) => {
-            if (err) {
-                console.error('Error closing database connection:', err);
-            }
-            process.exit(0);
-        });
-    });
-});
-
-process.on('SIGINT', () => {
-    console.log('SIGINT received. Shutting down gracefully...');
-    server.close(() => {
-        console.log('Server closed');
-        db.end((err) => {
-            if (err) {
-                console.error('Error closing database connection:', err);
-            }
-            process.exit(0);
+// Handle process signals
+const signals = ['SIGTERM', 'SIGINT', 'SIGUSR2'];
+signals.forEach(signal => {
+    process.on(signal, () => {
+        console.log(`\n${signal} received. Starting graceful shutdown...`);
+        server.close(() => {
+            console.log('Server closed');
+            db.end((err) => {
+                if (err) {
+                    console.error('Error closing database connection:', err);
+                } else {
+                    console.log('Database connection closed');
+                }
+                process.exit(0);
+            });
         });
     });
 }); 
