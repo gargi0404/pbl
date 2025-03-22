@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Records - Police Records System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Police Records System</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/search" class="active">Search Records</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="search-section">
+                <h2>Search Records</h2>
+                <form id="searchForm">
+                    <div class="form-group">
+                        <label for="searchQuery">Enter Name:</label>
+                        <input type="text" id="searchQuery" name="query" required>
+                    </div>
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+                
+                <div id="results" class="results-section">
+                    <!-- Results will be displayed here -->
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Police Records System. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="search.js"></script>
+</body>
+</html> 
