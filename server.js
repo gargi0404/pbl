@@ -127,6 +127,13 @@ app.use((err, req, res, next) => {
 const server = app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
     console.log(`Access the application at http://localhost:${port}`);
+}).on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        console.error(`Port ${port} is already in use. Please try a different port.`);
+        process.exit(1);
+    } else {
+        console.error('Server error:', err);
+    }
 });
 
 // Handle process signals
@@ -134,14 +141,17 @@ const signals = ['SIGTERM', 'SIGINT', 'SIGUSR2'];
 signals.forEach(signal => {
     process.on(signal, () => {
         console.log(`\n${signal} received. Starting graceful shutdown...`);
+        console.log('Closing server...');
         server.close(() => {
-            console.log('Server closed');
+            console.log('Server closed successfully');
+            console.log('Closing database connection...');
             db.end((err) => {
                 if (err) {
                     console.error('Error closing database connection:', err);
                 } else {
-                    console.log('Database connection closed');
+                    console.log('Database connection closed successfully');
                 }
+                console.log('Shutdown complete. Exiting...');
                 process.exit(0);
             });
         });
