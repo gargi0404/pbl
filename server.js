@@ -5,6 +5,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const mysql = require('mysql2');
 const natural = require('natural');
+const multer = require('multer');
 const metaphone = natural.Metaphone;
 const JaroWinklerDistance = natural.JaroWinklerDistance;
 
@@ -14,6 +15,32 @@ dotenv.config();
 // Create Express app
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/');
+    },
+    filename: function (req, file, cb) {
+        // Create a unique filename with timestamp
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 5 * 1024 * 1024 // 5MB limit
+    },
+    fileFilter: function (req, file, cb) {
+        // Accept only image files
+        if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+            return cb(new Error('Only image files are allowed!'), false);
+        }
+        cb(null, true);
+    }
+});
 
 // Basic middleware
 app.use(cors());
@@ -114,6 +141,19 @@ app.get('/api/persons/:id', (req, res) => {
             return;
         }
         res.json(results[0]);
+    });
+});
+
+// Add new route for photo upload
+app.post('/api/upload', upload.single('photo'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file uploaded' });
+    }
+    const imagePath = '/uploads/' + req.file.filename;
+    res.json({ 
+        success: true, 
+        imagePath: imagePath,
+        message: 'File uploaded successfully' 
     });
 });
 
