@@ -34,7 +34,6 @@ INSERT INTO persons (name, age, gender, address, phone, aadhaar_number) VALUES
 ('Gargi', 28, 'F', '27, Green Park, Kowdiar, Thiruvananthapuram, Kerala – 695003', '+91-9876543212', '9012-3456-7890'),
 ('Gargii', 34, 'F', 'House No. 89, Shyam Nagar, Near Raj Bhavan, Bhopal, Madhya Pradesh – 462002', '+91-8765432111', '0123-4567-8901'),
 ('Gargiii', 46, 'F', 'Flat No. 14C, Lake View Apartments, Salt Lake City, Kolkata, West Bengal – 700064', '+91-7654321100', '1122-3344-5566'),
-('Gaargi', 52, 'F', 'House No. 36, Rajendra Path, Kankarbagh, Patna, Bihar – 800020', '+91-6543210989', '2233-4455-6677'),
 ('Gaargii', 23, 'F', 'Village Rampur, PO Solan, Near Mall Road, Solan, Himachal Pradesh – 173212', '+91-9876543213', '3344-5566-7788'),
 ('Yamini', 21, 'F', 'Flat No. 507, Sunrise Towers, Gomti Nagar, Lucknow, Uttar Pradesh – 226010', '+91-8765432112', '4455-6677-8899'),
 ('Yaminii', 39, 'F', 'House No. 21, Shastri Nagar, Near Kali Mandir, Ranchi, Jharkhand – 834002', '+91-7654321101', '5566-7788-9900'),
