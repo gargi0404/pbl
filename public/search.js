@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'Criminal',
             image_path: '/images/gaargi.jpeg'
         },
-        'Gaargii': {
+        'Gaargi': {
             type: 'Criminal',
             image_path: '/images/gaargii.jpeg'
         },

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     arrestDate: '2024-03-20',
                     image_path: '/images/juii.jpeg'
                 },
-                'Gaargi': {
+                'Gargiii': {
                     type: 'Criminal',
                     status: 'In Custody',
                     caseNumber: 'CR-2024-103',
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     arrestDate: '2024-02-25',
                     image_path: '/images/gaargi.jpeg'
                 },
-                'Gaargii': {
+                'Gaargi': {
                     type: 'Criminal',
                     status: 'Under Trial',
                     caseNumber: 'CR-2024-104',
@@ -186,6 +186,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     investigatingOfficer: 'Inspector Patel',
                     caseStatus: 'Under Investigation',
                     image_path: '/images/yaminii.jpeg'
+                },
+                'Maithilii': {
+                    type: 'Victim',
+                    caseNumber: 'VC-2024-209',
+                    incidentType: 'Online Fraud',
+                    description: 'Victim of online banking fraud',
+                    compensation: 'Processing',
+                    reportDate: '2024-03-25',
+                    investigatingOfficer: 'Inspector Joshi',
+                    caseStatus: 'Under Investigation',
+                    image_path: '/images/maithilii.jpeg'
+                },
+                'Maethilee': {
+                    type: 'Victim',
+                    caseNumber: 'VC-2024-210',
+                    incidentType: 'Identity Theft',
+                    description: 'Victim of social media identity theft',
+                    compensation: 'Pending Review',
+                    reportDate: '2024-03-30',
+                    investigatingOfficer: 'Inspector Kulkarni',
+                    caseStatus: 'Under Investigation',
+                    image_path: '/images/maethilee.jpeg'
                 }
             };
 
