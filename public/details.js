@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // Debug information
+            console.log('Person from database:', person);
+
             // Define person-specific information
             const personInfo = {
                 // Criminals
@@ -30,20 +33,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     court: 'Mumbai Special Court',
                     nextHearing: '2024-05-10',
                     prisonCell: 'Block D, Cell 405',
-                    arrestDate: '2024-02-15'
+                    arrestDate: '2024-02-15',
+                    image_path: '/images/Maithilee.jpeg'
                 },
-                'Maithilii': {
+                'Jui': {
+                    type: 'Criminal',
+                    status: 'In Custody',
+                    caseNumber: 'CR-2024-107',
+                    crime: 'Cybercrime',
+                    description: 'Leader of international hacking syndicate',
+                    court: 'Mumbai Cyber Court',
+                    nextHearing: '2024-06-15',
+                    prisonCell: 'Block A, Cell 201',
+                    arrestDate: '2024-03-15',
+                    image_path: '/images/Jui.jpeg'
+                },
+                'Juii': {
                     type: 'Criminal',
                     status: 'Under Trial',
-                    caseNumber: 'CR-2024-102',
-                    crime: 'Money Laundering',
-                    description: 'Involved in large-scale money laundering operation',
+                    caseNumber: 'CR-2024-108',
+                    crime: 'Financial Fraud',
+                    description: 'Orchestrated major investment scam',
                     court: 'Economic Offences Court, Mumbai',
-                    nextHearing: '2024-05-15',
-                    bailStatus: 'Denied',
-                    arrestDate: '2024-02-20'
+                    nextHearing: '2024-06-20',
+                    bailStatus: 'Under Review',
+                    arrestDate: '2024-03-20',
+                    image_path: '/images/juii.jpeg'
                 },
-                'Gargiii': {
+                'Gaargi': {
                     type: 'Criminal',
                     status: 'In Custody',
                     caseNumber: 'CR-2024-103',
@@ -52,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     court: 'Mumbai High Court',
                     nextHearing: '2024-05-20',
                     prisonCell: 'Block C, Cell 302',
-                    arrestDate: '2024-02-25'
+                    arrestDate: '2024-02-25',
+                    image_path: '/images/gaargi.jpeg'
                 },
                 'Gaargii': {
                     type: 'Criminal',
@@ -63,7 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     court: 'Cyber Crime Court, Mumbai',
                     nextHearing: '2024-05-25',
                     bailStatus: 'Under Review',
-                    arrestDate: '2024-03-01'
+                    arrestDate: '2024-03-01',
+                    image_path: '/images/gaargii.jpeg'
                 },
                 'Yaamini': {
                     type: 'Criminal',
@@ -74,7 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     court: 'Mumbai Sessions Court',
                     nextHearing: '2024-06-01',
                     prisonCell: 'Block B, Cell 205',
-                    arrestDate: '2024-03-05'
+                    arrestDate: '2024-03-05',
+                    image_path: '/images/yaamini.jpeg'
                 },
                 'Yamminii': {
                     type: 'Criminal',
@@ -85,7 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     court: 'Economic Offences Court, Mumbai',
                     nextHearing: '2024-06-05',
                     bailStatus: 'Granted with Conditions',
-                    arrestDate: '2024-03-10'
+                    arrestDate: '2024-03-10',
+                    image_path: '/images/yamminii.jpeg'
                 },
 
                 // Victims
@@ -97,17 +118,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     compensation: 'Approved - ₹500,000',
                     reportDate: '2024-02-10',
                     investigatingOfficer: 'Inspector Deshmukh',
-                    caseStatus: 'Under Investigation'
+                    caseStatus: 'Under Investigation',
+                    image_path: '/images/maithelee.jpeg'
                 },
-                'Maethilee': {
+                'Juui': {
                     type: 'Victim',
-                    caseNumber: 'VC-2024-202',
-                    incidentType: 'Physical Assault',
-                    description: 'Victim of workplace violence',
-                    compensation: 'Processing',
-                    reportDate: '2024-02-15',
-                    investigatingOfficer: 'Inspector Kumar',
-                    caseStatus: 'Solved'
+                    caseNumber: 'VC-2024-207',
+                    incidentType: 'Identity Theft',
+                    description: 'Victim of sophisticated identity theft operation',
+                    compensation: 'Processing - ₹400,000',
+                    reportDate: '2024-03-15',
+                    investigatingOfficer: 'Inspector Patil',
+                    caseStatus: 'Under Investigation',
+                    image_path: '/images/juui.jpeg'
+                },
+                'Jhui': {
+                    type: 'Victim',
+                    caseNumber: 'VC-2024-208',
+                    incidentType: 'Online Harassment',
+                    description: 'Victim of severe cyberstalking case',
+                    compensation: 'Approved - ₹250,000',
+                    reportDate: '2024-03-20',
+                    investigatingOfficer: 'Inspector Sharma',
+                    caseStatus: 'Solved',
+                    image_path: '/images/jhui.jpeg'
                 },
                 'Gargi': {
                     type: 'Victim',
@@ -117,7 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     compensation: 'Approved - ₹300,000',
                     reportDate: '2024-02-20',
                     investigatingOfficer: 'Inspector Singh',
-                    caseStatus: 'Solved'
+                    caseStatus: 'Solved',
+                    image_path: '/images/Gargi.jpeg'
                 },
                 'Gargii': {
                     type: 'Victim',
@@ -127,7 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     compensation: 'Pending Review',
                     reportDate: '2024-02-25',
                     investigatingOfficer: 'Inspector Sharma',
-                    caseStatus: 'Under Investigation'
+                    caseStatus: 'Under Investigation',
+                    image_path: '/images/gargii.jpeg'
                 },
                 'Yamini': {
                     type: 'Victim',
@@ -137,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     compensation: 'Approved - ₹200,000',
                     reportDate: '2024-03-01',
                     investigatingOfficer: 'Inspector Verma',
-                    caseStatus: 'Solved'
+                    caseStatus: 'Solved',
+                    image_path: '/images/Yamini.jpeg'
                 },
                 'Yaminii': {
                     type: 'Victim',
@@ -147,7 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     compensation: 'Processing',
                     reportDate: '2024-03-05',
                     investigatingOfficer: 'Inspector Patel',
-                    caseStatus: 'Under Investigation'
+                    caseStatus: 'Under Investigation',
+                    image_path: '/images/yaminii.jpeg'
                 }
             };
 
@@ -156,11 +194,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 status: 'Under Investigation'
             };
 
+            // Debug information
+            console.log('Loading details for:', person.name);
+            console.log('Person info:', info);
+            console.log('Image path from personInfo:', info.image_path);
+            console.log('Image path from database:', person.image_path);
+
+            // Use image path from personInfo if available, otherwise use from database
+            const imagePath = info.image_path || person.image_path;
+
             personDetails.innerHTML = `
                 <div class="person-details-container">
                     <div class="person-image-container">
-                        ${person.image_path ? 
-                            `<img src="${person.image_path}" alt="${person.name}'s photo" class="person-photo">` : 
+                        ${info && info.image_path ? 
+                            `<img src="${info.image_path}" alt="${person.name}'s photo" class="person-photo" onerror="this.style.display='none'">` : 
                             '<div class="no-image">No Photo Available</div>'
                         }
                     </div>
