@@ -3,44 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Police Records System</title>
+    <title>Maharashtra Police Department</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Police Records System</h1>
-            <nav>
-                <a href="/" class="active">Home</a>
-                <a href="/search">Search Records</a>
-            </nav>
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="/images/police-logo.png" alt="Maharashtra Police Department Logo" class="police-logo">
+                    <h1 class="department-title">POLICE DEPARTMENT</h1>
+                </div>
+                <nav>
+                    <a href="/" class="active">Home</a>
+                    <a href="/search">Search Records</a>
+                </nav>
+            </div>
         </header>
         
         <main>
-            <section class="hero">
-                <h2>Welcome to Police Records System</h2>
-                <p>A comprehensive system for managing and searching police records with advanced name matching capabilities.</p>
-                <a href="/search" class="cta-button">Start Searching</a>
+            <section class="hero-section">
+                <h2 class="main-heading">Maharashtra Police Department</h2>
+                <h3 class="subheading">सत्यमेव जयते</h3>
+                <div class="hero-content">
+                    <p class="mission-statement">
+                        Dedicated to serving and protecting the citizens of Maharashtra with unwavering commitment, 
+                        integrity, and professionalism. Our mission is to maintain law and order while ensuring the 
+                        safety and security of our communities.
+                    </p>
+                    <div class="values-box">
+                        <div class="value-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Integrity</h4>
+                            <p>Upholding truth and justice in all our actions</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-hands-helping"></i>
+                            <h4>Service</h4>
+                            <p>Committed to public safety and community welfare</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-fist-raised"></i>
+                            <h4>Strength</h4>
+                            <p>Standing strong against crime and injustice</p>
+                        </div>
+                    </div>
+                    <a href="/search" class="cta-button">SEARCH RECORDS</a>
+                </div>
             </section>
             
-            <section class="features">
+            <section class="features-section">
                 <div class="feature-card">
-                    <h3>Advanced Name Matching</h3>
-                    <p>Using Jaro-Winkler Distance and Metaphone algorithms for accurate results</p>
+                    <i class="fas fa-search"></i>
+                    <h3>Advanced Search</h3>
+                    <p>Efficient record management system with advanced search capabilities</p>
                 </div>
                 <div class="feature-card">
+                    <i class="fas fa-database"></i>
                     <h3>Secure Database</h3>
-                    <p>All records are stored securely in MySQL database</p>
+                    <p>State-of-the-art security measures for data protection</p>
                 </div>
                 <div class="feature-card">
+                    <i class="fas fa-camera"></i>
                     <h3>Image Support</h3>
-                    <p>Store and retrieve profile pictures with records</p>
+                    <p>Comprehensive image management for records</p>
                 </div>
             </section>
         </main>
         
         <footer>
-            <p>&copy; 2024 Police Records System. All rights reserved.</p>
+            <div class="footer-content">
+                <i class="fas fa-badge-sheriff"></i>
+                <p>&copy; 2024 Maharashtra Police Department. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 </body>
