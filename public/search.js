@@ -61,6 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'Yaminii': {
             type: 'Victim',
             image_path: '/images/yaminii.jpeg'
+        },
+        'Maithilii': {
+            type: 'Victim',
+            image_path: '/images/maithilii.jpeg'
+        },
+        'Maethilee': {
+            type: 'Victim',
+            image_path: '/images/maethilee.jpeg'
         }
     };
 
@@ -82,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             results.forEach(person => {
                 // Get person info from our mapping
                 const info = personInfo[person.name] || {};
-                const imagePath = info.image_path || person.image_path;
+                const imagePath = info.image_path;
 
                 const resultCard = document.createElement('div');
                 resultCard.className = 'result-card';
@@ -90,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="result-content">
                         <div class="person-image">
                             ${imagePath ? 
-                                `<img src="${imagePath}" alt="${person.name}'s photo" onerror="this.style.display='none'">` : 
+                                `<img src="${imagePath}" alt="${person.name}'s photo" onerror="this.src='/images/${person.name}.jpeg'">` : 
                                 '<div class="no-image">No Photo Available</div>'
                             }
                         </div>

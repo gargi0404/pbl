@@ -39,3 +39,4 @@ INSERT INTO persons (name, age, gender, address, phone, aadhaar_number) VALUES
 ('Yaminii', 39, 'F', 'House No. 21, Shastri Nagar, Near Kali Mandir, Ranchi, Jharkhand – 834002', '+91-7654321101', '5566-7788-9900'),
 ('Yaamini', 41, 'F', 'Flat No. 8, Shanti Enclave, Dharampeth, Nagpur, Maharashtra – 440010', '+91-6543210990', '6677-8899-0011'),
 ('Yamminii', 54, 'F', 'Bungalow No. 34, Ashok Vihar, Near ISKCON Temple, Gandhinagar, Gujarat – 382010', '+91-9876543214', '7788-9900-1122');
+ 

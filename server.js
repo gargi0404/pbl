@@ -46,6 +46,18 @@ const upload = multer({
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
+// Add error handling for static files
+app.use((err, req, res, next) => {
+    if (err.code === 'ENOENT') {
+        console.error('File not found:', req.path);
+        res.status(404).send('File not found');
+    } else {
+        console.error('Error serving static file:', err);
+        res.status(500).send('Error serving file');
+    }
+});
 
 // Database connection
 const db = mysql.createConnection({
